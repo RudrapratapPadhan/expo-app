@@ -2,6 +2,13 @@ This my expo base app.
 Here given some screenshots on how its look in mobile screen.
 I also use fakestoreapi.com for this project.
 this is the project demo:
+(only use the given
+{
+  "username": "johnd",
+  "password": "m38rmF$"
+} because it uses fakestoreapi.com as api.
+)
+
 
 https://expojit-app.netlify.app/
 
