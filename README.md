@@ -1,6 +1,6 @@
 This my expo base app.
 Here given some screenshots on how its look in mobile screen.
-
+I also use fakestoreapi.com for this project.
 
 ![WhatsApp Image 2025-06-14 at 4 30 09 PM](https://github.com/user-attachments/assets/73bfdfdd-5e11-4daf-b895-c4026e0ae47f)
 ![WhatsApp Image 2025-06-14 at 4 30 10 PM](https://github.com/user-attachments/assets/b9bf8bf9-5f58-485b-917a-65727db1fea2)
