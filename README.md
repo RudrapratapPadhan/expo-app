@@ -2,9 +2,9 @@ This my expo base app.
 Here given some screenshots on how its look in mobile screen.
 I also use fakestoreapi.com for this project.
 
-It has 2 Assignments:
+It has 4 Assignments:
 
-1) Assignment 1:User Authentication Screens 
+1)Assignment 1:User Authentication Screens 
 Total Marks: 20 
 Objective: 
 • Create Sign Up and Login screens. 
