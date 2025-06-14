@@ -1,6 +1,9 @@
 This my expo base app.
 Here given some screenshots on how its look in mobile screen.
 I also use fakestoreapi.com for this project.
+this is the project demo:
+
+https://expojit-app.netlify.app/
 
 It has 4 Assignments:
 
