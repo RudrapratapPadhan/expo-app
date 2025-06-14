@@ -1,51 +1,66 @@
 // App.js
 
 import React, { useContext } from 'react';
-import { Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack'; // use this for web compatibility
-import { AuthProvider } from './Auth';
-import AuthContext from './Auth'; 
-import LoginScreen from './LoginScreen';
-import SignUpScreen from './SignupScreen';
-import HomeScreen from './HomeScreen';
-import ProfileScreen from './Profile';
-import CartScreen from './cart';
-import ProductDetailScreen from './Productd';
-import SplashScreen from './SandB';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+import { AuthProvider, AuthContext } from './context/AuthContext';
+import { CartProvider } from './context/CartContext';
+
+import LoginScreen from './screens/LoginScreen';
+import SignupScreen from './screens/SignupScreen';
+import HomeScreen from './screens/HomeScreen';
+import ProfileScreen from './screens/ProfileScreen';
+import ProductScreen from './screens/ProductScreen';
+import ProductDetailScreen from './screens/ProductDetailScreen';
+import CartScreen from './screens/CartScreen';
+
+const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 function MainTabs() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+    screenOptions={{
+        headerShown: false, // Hide header for tab screens
+        tabBarStyle: {
+          backgroundColor: '#000', // Black background
+          borderTopWidth: 0,
+        },
+        tabBarActiveTintColor: '#fff',    // White text for active tab
+        tabBarInactiveTintColor: '#ccc',  // Gray text for inactive tab
+        tabBarLabelStyle: {
+          fontSize: 12,
+          fontWeight: '600',
+        },
+      }}
+    >
       <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Profile" component={ProfileScreen} />
+      <Tab.Screen name="Products" component={ProductScreen} />
       <Tab.Screen name="Cart" component={CartScreen} />
-      <Tab.Screen name="Products" component={ProductDetailScreen} />
+      <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
   );
 }
 
-const Stack = createStackNavigator();
-
 function RootNavigator() {
   const { accessToken, loading } = useContext(AuthContext);
 
-  if (loading) return <SplashScreen />;
+  if (loading) return null; // Optionally show a splash/loading screen
 
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       {accessToken == null ? (
         <>
           <Stack.Screen name="Login" component={LoginScreen} />
-          <Stack.Screen name="SignUp" component={SignUpScreen} />
+          <Stack.Screen name="Signup" component={SignupScreen} />
         </>
       ) : (
-        <Stack.Screen
-          name="MainTab"
-          component={MainTabs}
-        />
+        <>
+          <Stack.Screen name="MainTabs" component={MainTabs} />
+          <Stack.Screen name="ProductDetail" component={ProductDetailScreen} />
+        </>
       )}
     </Stack.Navigator>
   );
@@ -54,9 +69,11 @@ function RootNavigator() {
 export default function App() {
   return (
     <AuthProvider>
-      <NavigationContainer>
-        <RootNavigator />
-      </NavigationContainer>
+      <CartProvider>
+        <NavigationContainer>
+          <RootNavigator />
+        </NavigationContainer>
+      </CartProvider>
     </AuthProvider>
   );
 }
