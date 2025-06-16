@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { AuthContext } from '../context/AuthContext';
 import { useNavigation } from '@react-navigation/native';
 
@@ -20,6 +20,7 @@ export default function SignupScreen() {
 
   return (
     <View style={styles.container}>
+    
       <Text style={styles.header}>Create Account ✨</Text>
 
       <TextInput
@@ -56,50 +57,76 @@ export default function SignupScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 30,
+    padding: 20,
     justifyContent: 'center',
-    backgroundColor: '#f9fafe',
+    backgroundColor: '#1e1e2f',
+  },
+  logo: {
+    width: 120,
+    height: 120,
+    alignSelf: 'center',
+    marginBottom: 30,
+    borderRadius: 60,
+    borderWidth: 3,
+    borderColor: '#ff6f91',
+    backgroundColor: '#2a2a3d',
   },
   header: {
-    fontSize: 28,
+    fontSize: 36,
     fontWeight: 'bold',
-    marginBottom: 30,
-    color: '#333',
+    marginBottom: 40,
+    color: '#ff6f91',
     textAlign: 'center',
+    textShadowColor: '#330033',
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 5,
   },
   input: {
-    backgroundColor: '#fff',
-    padding: 12,
-    borderRadius: 8,
+    backgroundColor: '#2a2a3d',
+    padding: 15,
+    borderRadius: 25,
     borderWidth: 1,
-    borderColor: '#ddd',
-    marginBottom: 15,
+    borderColor: '#ff6f91',
+    marginBottom: 20,
     fontSize: 16,
+    color: '#fff',
+    shadowColor: '#ff6f91',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.5,
+    shadowRadius: 4,
   },
   signupButton: {
-    backgroundColor: '#20bf6b',
-    paddingVertical: 14,
-    borderRadius: 8,
+    backgroundColor: '#ff6f91',
+    paddingVertical: 15,
+    borderRadius: 25,
     alignItems: 'center',
     marginTop: 10,
+    shadowColor: '#ff6f91',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.6,
+    shadowRadius: 6,
+    elevation: 8,
   },
   signupText: {
-    color: 'white',
-    fontSize: 16,
-    fontWeight: '600',
+    color: '#1e1e2f',
+    fontSize: 18,
+    fontWeight: '700',
+    letterSpacing: 1,
   },
   loginContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginTop: 25,
+    marginTop: 30,
   },
   loginText: {
-    color: '#444',
+    color: '#aaa',
     fontSize: 14,
   },
   loginLink: {
-    color: '#20bf6b',
+    color: '#ff6f91',
     fontSize: 14,
     fontWeight: 'bold',
+    textDecorationLine: 'underline',
   },
 });
+

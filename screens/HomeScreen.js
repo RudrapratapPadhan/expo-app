@@ -100,8 +100,8 @@ export default function HomeScreen() {
           />
         )}
 
-        {/* Feedback Section */}
-        <View style={styles.feedbackContainer}>
+        
+        {/* <View style={styles.feedbackContainer}>
           <Text style={styles.feedbackHeader}>📢 Feedback</Text>
           <TextInput
             style={styles.feedbackInput}
@@ -111,7 +111,7 @@ export default function HomeScreen() {
             onChangeText={setFeedback}
           />
           <Button title="Submit" color="#20bf6b" onPress={handleFeedbackSubmit} />
-        </View>
+        </View> */}
       </ScrollView>
     </KeyboardAvoidingView>
   );
